@@ -57,11 +57,11 @@ class User extends Authenticatable
         }
     }
     
-    public function unfollow($user_id)
+    public function unfollow($userId)
     {
         // すでにフォローしているかの確認
-        $exist = $this->is_following($user_id);
-        $its_me = $this->id == $user_id;
+        $exist = $this->is_following($userId);
+        $its_me = $this->id == $userId;
         
         if ($exist && !$its_me) {
             $this->followings()->detach($userId);
